@@ -4,31 +4,38 @@
   <meta charset="UTF-8">
   <title>OpenSrc</title>
   <link rel="stylesheet" href="lib/css/index.css">
+  <script src="lib/js/index.js"></script>
+  <script src="https://raw.github.com/chjj/marked/master/lib/marked.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28431420-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </head>
 <body>
-
-  <header>opensrc.org</header>
-
+  <header>OpenSrc</header>
   <ul class="tabrow">
-    <li class="selected"><a href="#lib/md/home.md">Home</a></li>
-    <li><a href="#README.md">Readme</a></li>
-    <li><a href="http://opensrc.github.com"></a>Source</li>
-    <li><a href="http://alsa.opensrc.org">alsa.opensrc.org</a></li>
+    <li><a id="tab1" href="#lib/md/home.md" onclick="get('lib/md/home.md');tabselect(this)" class="selected">Home</a></li>
+    <li><a id="tab2" href="#README.md" onclick="get('README.md');tabselect(this)">Readme</a></li>
+    <li><a id="tab3" href="http://github.com/opensrc">Source</a></li>
+    <li><a id="tab4" href="http://alsa.opensrc.org">alsa.opensrc.org</a></li>
   </ul>
-
-<script src="lib/js/index.js"></script>
-<script src="https://raw.github.com/chjj/marked/master/lib/marked.js"></script>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-28431420-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <section id="preview">
+  </section>
+  <section id="editor-panel" style="display:none">
+    <textarea id="editor"># Hello World</textarea>
+  </section>
+  <footer>
+    <a href="http://validator.w3.org/check?uri=referer" title="Validate This Page">
+      Copyright &copy; 2007-2011 Mark Constable (AGPLv3)
+    </a>
+  </footer>
 </body>
 </html>
 

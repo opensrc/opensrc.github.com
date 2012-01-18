@@ -93,7 +93,8 @@ header {
   text-align: center;
   font-weight: bold;
   font-size: 500%;
-  min-height: 1em;
+  line-height: 100%;
+  margin-bottom: 0.125em;
   text-shadow: 0 -0.02em 0em #F7F7F7, 0 0.01em 0.06em #3F3F3F;
 }
 
@@ -122,13 +123,13 @@ nav a {
   font-size: 75%;
   padding: 0.25em 1em;
   text-shadow: 0 0.1em 0.1em #BFBFBF;
-  background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#7F7F7F));
-  background: -moz-linear-gradient(top, #DFDFDF, #7F7F7F);
+  background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#BFBFBF));
+  background: -moz-linear-gradient(top, #DFDFDF, #BFBFBF);
   box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.4);
 }
 
 nav a:hover {
-  background-color: #7F7F7F;
+  background-color: #BFBFBF;
   border-color: #3F3F3F;
   color: #FFFFFF;
   text-shadow: 0 0.1em 0.1em #000000;
@@ -143,7 +144,7 @@ footer {
 }
 
 footer a {
-  color: #7F7F7F;
+  color: #BFBFBF;
   font-family: "Georgia", serif;
   font-size: 66%;
   font-style: italic;
@@ -165,19 +166,23 @@ footer a {
 .tabrow {
   text-align: center;
   list-style: none;
-  margin: 200px 0 20px;
-  padding: 0;
-  line-height: 24px;
-  height: 26px;
   overflow: hidden;
-  font-size: 12px;
-  font-family: verdana;
   position: relative;
+  font-size: 75%;
+  margin: 0;
 }
 
 .tabrow li {
-  border: 1px solid #AAA;
-  background: #D1D1D1;
+  display: inline-block;
+}
+
+.tabrow a {
+  color: #3F3F3F;
+  text-decoration: none;
+  border-bottom-width: 1px;
+
+  border: 1px solid #BFBFBF;
+  background: #7F7F7F;
   background: -o-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
   background: -ms-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
   background: -moz-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
@@ -188,23 +193,17 @@ footer a {
   z-index: 0;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
-  text-shadow: 0 1px #FFF;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFFFFF;
+  text-shadow: 0 1px #FFFFFF;
   margin: 0 -5px;
-  padding: 0 20px;
+  padding: 0.25em 1em;
 }
 
-.tabrow a {
-  color: #555;
-  text-decoration: none;
-  border-bottom-width: 1px;
-}
-
-.tabrow li.selected {
-  background: #FFF;
-  color: #333;
+.tabrow a.selected {
+  background: #DFDFDF;
+  color: #1F1F1F;
   z-index: 2;
-  border-bottom-color: #FFF;
+  border-bottom-color: #DFDFDF;
 }
 
 .tabrow:before {
@@ -213,13 +212,13 @@ footer a {
   width: 100%;
   bottom: 0;
   left: 0;
-  border-bottom: 1px solid #AAA;
+  border-bottom: 1px solid #BFBFBF;
   z-index: 1;
 }
 
-.tabrow li:before,
-.tabrow li:after {
-  border: 1px solid #AAA;
+.tabrow a:before,
+.tabrow a:after {
+  border: 1px solid #BFBFBF;
   position: absolute;
   bottom: -1px;
   width: 5px;
@@ -227,25 +226,32 @@ footer a {
   content: " ";
 }
 
-.tabrow li:before {
+.tabrow a:before {
   left: -6px;
   border-bottom-right-radius: 6px;
   border-width: 0 1px 1px 0;
   box-shadow: 2px 2px 0 #D1D1D1;
 }
 
-.tabrow li:after {
+.tabrow a:after {
   right: -6px;
   border-bottom-left-radius: 6px;
   border-width: 0 0 1px 1px;
   box-shadow: -2px 2px 0 #D1D1D1;
 }
 
-.tabrow li.selected:before {
-  box-shadow: 2px 2px 0 #FFF;
+.tabrow a.selected:before {
+  box-shadow: 2px 2px 0 #DFDFDF;
 }
 
-.tabrow li.selected:after {
-  box-shadow: -2px 2px 0 #FFF;
+.tabrow a.selected:after {
+  box-shadow: -2px 2px 0 #DFDFDF;
 }
 
+.tabrow a:hover {
+  color: #BF0000;
+}
+
+.tabrow a.selected:hover {
+  color: #1F1F1F;
+}
