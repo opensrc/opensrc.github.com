@@ -17,25 +17,44 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
+  <script id="tempjs" type="text/javascript"></script>
 </head>
 <body>
-  <header>OpenSrc</header>
-  <ul class="tabrow">
-    <li><a id="tab1" href="#lib/md/home.md" onclick="get('lib/md/home.md');tabselect(this)" class="selected">Home</a></li>
-    <li><a id="tab2" href="#README.md" onclick="get('README.md');tabselect(this)">Readme</a></li>
-    <li><a id="tab3" href="http://github.com/opensrc">Source</a></li>
-    <li><a id="tab4" href="http://alsa.opensrc.org">alsa.opensrc.org</a></li>
-  </ul>
-  <section id="preview">
+  <header><a href="/">OpenSrc</a></header>
+  <nav class="tabs">
+    <a class="selected" href="#/lib/md/home.md" onclick="tab(this)">Home</a>
+    <a href="#/README.md" onclick="tab(this)">Readme</a>
+    <a href="#/lib/htm/calc.htm" onclick="tab(this,'/lib/js/calc.js')">Calculator</a>
+    <a href="#/lib/htm/calc2.htm" onclick="tab(this)">JS Test</a>
+  </nav>
+  <section id="content">
   </section>
-  <section id="editor-panel" style="display:none">
-    <textarea id="editor"># Hello World</textarea>
+  <nav class="buttons">
+    <a class="button" href="#" onclick="$('editor-panel').classList.toggle('show');sel(this)">Editor</a>
+    <a class="button" href="http://github.com/opensrc">Source</a>
+    <a class="button" href="http://alsa.opensrc.org">alsa.opensrc.org</a>
+    <a class="button" href="#" onclick="document.body.classList.toggle('large');sel(this)">Large</a>
+    <a class="button" href="#" onclick="document.body.classList.toggle('small');sel(this)">Small</a>
+    <a class="button" href="#" onclick="document.body.classList.toggle('dark');sel(this)">Dark</a>
+    <a class="button" href="#" onclick="document.body.classList.toggle('light');sel(this)">Light</a>
+  </nav>
+  <section id="editor-panel" class="hide">
+    <textarea id="editor"># Hello World
+    </textarea>
+    <nav class="buttons" style="background: red;">
+      <a class="button" href="#" onclick="markup()">Markup</a>
+      <a class="button" href="#/lib/md/markdown.md" onclick="tab(this)">Help</a>
+      <a class="button" href="#" onclick="html()">HTML</a>
+      <a class="button" href="#" onclick="json()">JSON</a>
+      <a class="button" href="#" onclick="save()">Save</a>
+      <a class="button" href="#" onclick="clearit()">Clear</a>
+      <a class="button" href="#" onclick="$('editor-panel').classList.toggle('show');sel(this)">Hide</a>
+    </nav>
   </section>
   <footer>
-    <a href="http://validator.w3.org/check?uri=referer" title="Validate This Page">
-      Copyright &copy; 2007-2011 Mark Constable (AGPLv3)
-    </a>
+    <a href="http://validator.w3.org/check?uri=referer" title="Validate This Page">Copyright &copy; 1992-2012</a>
+    <a href="http://markconstable.com" title="McBlog">Mark Constable</a>
+    <a href="http://en.wikipedia.org/wiki/Affero_General_Public_License" title="Redistribution License">(AGPLv3)</a>
   </footer>
 </body>
 </html>
-

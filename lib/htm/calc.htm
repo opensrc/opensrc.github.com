@@ -1,0 +1,130 @@
+<section id="lib_htm_calc">
+  <style>
+#calculator {
+  background-color: #3F3F3F;
+  border: 0.05em solid #1F1F1F;
+  border-radius: 0.3em;
+  height: 9em;
+  margin: 0 auto;
+  padding: 0.4em;
+  width: 16em;
+  box-shadow: 0 0.25em 0.5em rgba(63,63,63,1);
+
+  display: -webkit-box;
+  -webkit-box-align: stretch;
+  -webkit-box-orient: vertical;
+}
+
+#calculator div {
+  display: -webkit-box;
+  -webkit-box-align: stretch;
+  -webkit-box-flex: 1;
+  -webkit-box-orient: horizontal;
+  -webkit-box-sizing: border-box;
+}
+
+#calculator div.display {
+  padding: 0.225em;
+}
+
+#calculator input {
+  display: block;
+  border: 0.03em solid #000000;
+  border-radius: 0.1em;
+  color: #FFFFFF;
+  width: 100%;
+  text-align: right;
+  font-size: 150%;
+  padding-right: 0.2em;
+  text-shadow: -0.05em -0.05em 0.025em rgba(0,0,0,1);
+
+  -webkit-box-sizing: border-box;
+
+  background-color: #1F1F1F;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#1F1F1F), color-stop(50%,#0F0F0F));
+  -webkit-box-shadow:0 0.05em 0 rgba(255,255,255,0.3);
+}
+
+#calculator button {
+  background-color: transparent;
+  font-size: 100%;
+  width: 20%;
+
+  display: -webkit-box;
+  -webkit-box-align: stretch;
+  -webkit-box-flex: 1;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-sizing: border-box;
+}
+
+#calculator button span {
+  border: 0.05em solid rgba(0,0,0,0.5);
+  border-radius: 0.2em;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0.2em;
+  text-shadow: -0.05em -0.05em 0.025em  rgba(0,0,0,1);
+
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-flex: 1;
+
+  background-color: #3F3F3F;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4F4F4F), color-stop(100%,#2F2F2F));
+  -webkit-box-shadow: 0 0.05em 0 rgba(255,255,255,0.3);
+}
+
+#calculator button.num span {
+  background-color: #1F1F1F;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2F2F2F), color-stop(100%,#0F0F0F));
+}
+
+#calculator button.pressed span,
+#calculator button:active span {
+  color: #7F7F7F;
+  -webkit-box-shadow: inset 0 0.3em 1em #000000;
+}
+
+#calculator button.current span {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFBF00), color-stop(100%,#BF3F00));
+}
+  </style>
+  <br>
+  <div id="calculator">
+    <div class="display">
+      <input type="text" id="display" name="display" value="0"/>
+    </div>
+    <div>
+      <button type="button" class="func"><span>&empty;</span></button>
+      <button type="button" class="num"><span>1</span></button>
+      <button type="button" class="num"><span>2</span></button>
+      <button type="button" class="num"><span>3</span></button>
+      <button type="button" class="func"><span>+</span></button>
+    </div>
+    <div>
+      <button type="button" class="func"><span>&plusmn;</span></button>
+      <button type="button" class="num"><span>4</span></button>
+      <button type="button" class="num"><span>5</span></button>
+      <button type="button" class="num"><span>6</span></button>
+      <button type="button" class="func"><span>&ndash;</span></button>
+    </div>
+    <div>
+      <button type="button" class="func"><span>%</span></button>
+      <button type="button" class="num"><span>7</span></button>
+      <button type="button" class="num"><span>8</span></button>
+      <button type="button" class="num"><span>9</span></button>
+      <button type="button" class="func"><span>&times;</span></button>
+    </div>
+    <div>
+      <button type="button" class="func"><span>&larr;</span></button>
+      <button type="button" class="func"><span>.</span></button>
+      <button type="button" class="num"><span>0</span></button>
+      <button type="button" class="func"><span>=</span></button>
+      <button type="button" class="func"><span>&divide;</span></button>
+    </div>
+  </div>
+</section>
