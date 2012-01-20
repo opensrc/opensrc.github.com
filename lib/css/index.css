@@ -1,3 +1,4 @@
+
 * {
   background-color: inherit;
   color: inherit;
@@ -278,3 +279,10 @@ footer a {
 .tabs a.selected:hover {
   color: #8F8F8F;
 }
+
+/***
+* Source: https://github.com/opensrc/opensrc.github.com/blob/master/lib/css/index.js
+* License: http://www.gnu.org/licenses/agpl.html
+* Version: 20120120
+* Copyright: Mark Constable
+***/

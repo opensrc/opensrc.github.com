@@ -74,3 +74,7 @@ end tags cannot be indented and must be separated by blank lines.
 Span-level HTML can include markup but any block-level markup will
 be ignored.
 
+* Source: https://github.com/opensrc/opensrc.github.com/blob/master/lib/md/markdown.md
+* License: http://www.gnu.org/licenses/agpl.html
+* Version: 20120120
+* Copyright: Mark Constable
