@@ -1,3 +1,4 @@
+.gitignore
 favicon.ico
 index.html
 opensrc.creator
@@ -9,3 +10,5 @@ lib/md/home.md
 lib/md/markdown.md
 lib/htm/calc.htm
 lib/js/calc.js
+.gitignore
+.gitignore
