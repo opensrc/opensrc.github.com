@@ -1,5 +1,12 @@
-<section id="lib_htm_calc">
+<div id="lib_htm_calc">
   <style>
+
+#calculator * {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
 #calculator {
   background-color: #3F3F3F;
   border: 0.05em solid #1F1F1F;
@@ -99,7 +106,7 @@
       <input type="text" id="display" name="display" value="0"/>
     </div>
     <div>
-      <button type="button" class="func"><span>&empty;</span></button>
+      <button type="button" class="func"><span>&oslash;</span></button>
       <button type="button" class="num"><span>1</span></button>
       <button type="button" class="num"><span>2</span></button>
       <button type="button" class="num"><span>3</span></button>
@@ -110,7 +117,7 @@
       <button type="button" class="num"><span>4</span></button>
       <button type="button" class="num"><span>5</span></button>
       <button type="button" class="num"><span>6</span></button>
-      <button type="button" class="func"><span>&ndash;</span></button>
+      <button type="button" class="func"><span>-</span></button>
     </div>
     <div>
       <button type="button" class="func"><span>%</span></button>
@@ -120,11 +127,181 @@
       <button type="button" class="func"><span>&times;</span></button>
     </div>
     <div>
-      <button type="button" class="func"><span>&larr;</span></button>
+      <button type="button" class="func"><span>&laquo;</span></button>
       <button type="button" class="func"><span>.</span></button>
       <button type="button" class="num"><span>0</span></button>
       <button type="button" class="func"><span>=</span></button>
       <button type="button" class="func"><span>&divide;</span></button>
     </div>
   </div>
-</section>
+  <script>
+/*http://www.jslint.com and http://www.jshint.com*/
+/*jslint browser: true, indent: 2, plusplus: false */
+
+(function () {
+
+  "use strict";
+
+  var calc = {
+    curValue: "",
+    isPendingFunction: false,
+    thePendingFunction: "",
+    valueOneLocked: false,
+    valueTwoLocked: false,
+    valueOne: 0,
+    valueTwo: 0,
+    fromPrevious: false,
+    pendingFunction: "",
+    display: null,
+    buttons: [],
+
+    init: function () {
+      var i = 0;
+      this.calculator = document.getElementById("calculator");
+      this.display = document.getElementById("display");
+      this.buttons = document.getElementsByTagName("button");
+      for (i = 0; i < this.buttons.length; i++) {
+        this.buttons[i].onclick = this.handler;
+      }
+    },
+
+    resetCalc: function (v) {
+      var current;
+      calc.display.value = v;
+      current = this.calculator.getElementsByClassName("current");
+      if (current[0]) {
+        current[0].className = current[0].className.replace(/(\s*current\s*)/, "");
+      }
+      calc.isPendingFunction = false;
+      calc.thePendingFunction = "";
+      calc.valueOneLocked = false;
+      calc.valueTwoLocked = false;
+      calc.valueOne = v;
+      calc.valueTwo = 0;
+      calc.fromPrevious = false;
+    },
+
+    handler: function () {
+      var k = this.textContent, v = "";
+      switch (k) {
+      case "\xF8": //&oslash;
+        calc.clear();
+        break;
+      case "+":
+        calc.func("+");
+        this.className += " current";
+        break;
+      case "-":
+        calc.func("-");
+        this.className += " current";
+        break;
+      case "\xD7": //&times;
+        calc.func("*");
+        this.className += " current";
+        break;
+      case "\xF7": //&divide;
+        calc.func("/");
+        this.className += " current";
+        break;
+      case "%":
+        calc.func("%");
+        this.className += " current";
+        break;
+      case "=":
+        calc.equals();
+        break;
+      case ".":
+        calc.display.value += ".";
+        break;
+      case "\xAB": //&laquo;
+        calc.backspace();
+        break;
+      case "\xB1": //&plusmn;
+        calc.plusmn();
+        break;
+      default:
+        if (calc.fromPrevious === true) {
+          calc.resetCalc(k);
+        } else if (calc.isPendingFunction === true && calc.valueOneLocked === false) {
+          calc.valueOne = calc.display.value;
+          calc.valueOneLocked = true;
+          calc.valueTwo = k;
+          calc.valueTwoLocked = true;
+          calc.display.value = k;
+        } else if (calc.isPendingFunction === true && calc.valueOneLocked === true) {
+          v = calc.display.value;
+          calc.valueTwo = v + k;
+          calc.valueTwoLocked = true;
+          calc.display.value = v + k;
+        } else {
+          v = calc.display.value;
+          calc.display.value = (v === "0" ? "" : v) + k;
+        }
+      }
+    },
+
+    dot: function () {
+      var v = calc.display.value;
+      calc.display.value = v + ".";
+    },
+
+    backspace: function () {
+      var v = calc.display.value;
+      calc.display.value = v.length > 1 ? v.slice(0, -1) : "0";
+    },
+
+    plusmn: function () {
+      var v = calc.display.value;
+      calc.display.value = (v[0] === "-") ? v.replace(/[\-]/, "") : "-" + v;
+    },
+
+    clear: function () {
+      calc.resetCalc("0");
+    },
+
+    func: function (k) {
+      if (calc.fromPrevious === true) {
+        calc.resetCalc(calc.display.value);
+        calc.valueOneLocked = false;
+        calc.fromPrevious = false;
+      }
+      calc.isPendingFunction = true;
+      calc.thePendingFunction = k;
+    },
+
+    equals: function () {
+      if (calc.valueOneLocked === true && calc.valueTwoLocked === true) {
+        var a = parseFloat(calc.valueOne),
+          b = parseFloat(calc.valueTwo),
+          f = calc.thePendingFunction,
+          z = 0;
+        if (f === "+") {
+          z = a + b;
+        } else if (f === "-") {
+          z = a - b;
+        } else if (f === "*") {
+          z = a * b;
+        } else if (f === "/") {
+          z = a / b;
+        } else if (f === "%") {
+          z = (a / 100) * b + "%";
+        }
+        calc.resetCalc(z);
+        calc.fromPrevious = true;
+      }
+    }
+  };
+
+  calc.init();
+
+}());
+  </script>
+  <!--
+/***
+* Source: https://github.com/opensrc/opensrc.github.com/blob/master/lib/htm/calc.htm
+* License: http://www.gnu.org/licenses/agpl.html
+* Version: 20120120
+* Copyright: Mark Constable
+***/
+  -->
+</div>
