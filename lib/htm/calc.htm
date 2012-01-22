@@ -99,9 +99,10 @@
 #calculator button.current span {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFBF00), color-stop(100%,#BF3F00));
 }
+
   </style>
   <br>
-  <div id="calculator">
+  <div id="calculator" class="drag">
     <div class="display">
       <input type="text" id="display" name="display" value="0"/>
     </div>
@@ -137,6 +138,11 @@
   <script>
 /*http://www.jslint.com and http://www.jshint.com*/
 /*jslint browser: true, indent: 2, plusplus: false */
+/*global DragHandler */
+
+if (typeof DragHandler === "object") {
+  DragHandler.attach($('calculator'));
+}
 
 (function () {
 

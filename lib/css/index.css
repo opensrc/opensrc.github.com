@@ -280,6 +280,12 @@ footer a {
   color: #8F8F8F;
 }
 
+.drag {
+  position: relative;
+  cursor: move;
+  z-index: 999;
+}
+
 /***
 * Source: https://github.com/opensrc/opensrc.github.com/blob/master/lib/css/index.js
 * License: http://www.gnu.org/licenses/agpl.html
