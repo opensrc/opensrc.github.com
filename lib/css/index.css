@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  background-color: #DFDFDF;
+  background-color: #EFEFEF;
   color: #1F1F1F;
   margin: 0 auto;
   padding-bottom: 1em;
@@ -89,20 +89,39 @@ hr {
 }
 
 header {
-  color: #DFDFDF;
   text-align: center;
-  font-weight: bold;
-  font-size: 500%;
-  line-height: 100%;
-  text-shadow: 0em -0.02em 0em #F7F7F7, 0em 0.01em 0.06em #3F3F3F;
 }
 
 header a {
-  color: #DFDFDF;
+  color: #EFEFEF;
+  font-weight: bold;
+  font-size: 500%;
+  text-shadow: 0em -0.02em 0em #F7F7F7, 0em 0.01em 0.06em #3F3F3F;
 }
 
 header a:hover {
   color: #E7E7E7;
+}
+
+footer {
+  margin: 1em 0em;
+  text-align: center;
+}
+
+footer a {
+  color: #BFBFBF;
+  font-family: "Georgia", serif;
+  font-size: 66%;
+  font-style: italic;
+}
+
+#content {
+  min-height: 16em;
+  margin-bottom: 0.5em;
+}
+
+#content > h1 {
+  margin-top: 0.25em;
 }
 
 #editor-panel {
@@ -127,67 +146,36 @@ header a:hover {
   width: 95%;
 }
 
-a.button {
-  background-color: #BFBFBF;
-  border: 0.1em solid #9F9F9F;
+.button {
+  background-color: #DFDFDF;
+  border-color: #BFBFBF;
+  border-style: solid;
+  border-width: 0.1em;
   border-radius: 0.3em;
   color: #3F3F3F;
   font-size: 70%;
   padding: 0.4em 1.5em;
   text-shadow: 0em 0.075em 0.05em #FFFFFF;
-  background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#CFCFCF));
-  background: -moz-linear-gradient(top, #EFEFEF, #CFCFCF);
-  box-shadow: 0em 0.1em 0.3em #BFBFBF, inset 0em -0.1em 0em #FFFFFF;
+  background: -webkit-linear-gradient(top, #FFFFFF, #DFDFDF);
+  background: -moz-linear-gradient(top, #FFFFFF, #DFDFDF);
+  box-shadow: 0em 0em 0em #FFFFFF, inset 0em -0.1em 0em #FFFFFF;
 }
 
-a.button:hover {
-  background-color: #BFBFBF;
-  border-color: #BFBFBF;
+.button:hover {
   color: #BF0000;
-  background: -webkit-gradient(linear, left top, left bottom, from(#CFCFCF), to(#EFEFEF));
-  background: -moz-linear-gradient(top, #CFCFCF, #EFEFEF);
-  box-shadow: 0em 0em 0em #FFFFFF, inset 0em 0.1em 0em #FFFFFF;
+  background: -webkit-linear-gradient(top, #DFDFDF, #FFFFFF);
+  background: -moz-linear-gradient(top, #DFDFDF, #FFFFFF);
+  box-shadow: 0em 0.2em 0.3em #CFCFCF, inset 0em 0.1em 0em #FFFFFF;
 }
 
-a.button.selected {
-  background: #DFDFDF;
+.button.selected {
+  background: #EFEFEF;
   box-shadow: 0em 0em 0em #FFFFFF;
-  border-color: #9F9F9F;
   color: #8F8F8F;
 }
 
-a.button.selected:hover {
+.button.selected:hover {
   color: #8F8F8F;
-}
-
-footer {
-  margin: 1em 0em;
-  text-align: center;
-}
-
-footer a {
-  color: #BFBFBF;
-  font-family: "Georgia", serif;
-  font-size: 66%;
-  font-style: italic;
-}
-
-#content {
-  min-height: 16em;
-  margin-bottom: 0.5em;
-}
-
-.hide { display: none; }
-.show { display: block; }
-.large { font-size: 1.9em; }
-.small { font-size: 0.7em; }
-.dark {
-  background-color: #3F3F3F;
-  color: #DFDFDF;
-}
-.light {
-  background-color: #FFFFFF;
-  color: #1F1F1F;
 }
 
 .buttons {
@@ -201,41 +189,10 @@ footer a {
   overflow: hidden;
   position: relative;
   font-size: 70%;
-  margin: 0;
 }
 
 .tabs li {
   display: inline-block;
-}
-
-.tabs a {
-  color: #3F3F3F;
-  text-decoration: none;
-  border-bottom-width: 0.1em;
-
-  border: 0.1em solid #9F9F9F;
-  background: #7F7F7F;
-  background: -o-linear-gradient(top, #EFEFEF 50%, #CFCFCF 100%);
-  background: -ms-linear-gradient(top, #EFEFEF 50%, #CFCFCF 100%);
-  background: -moz-linear-gradient(top, #EFEFEF 50%, #CFCFCF 100%);
-  background: -webkit-linear-gradient(top, #EFEFEF 50%, #CFCFCF 100%);
-  background: linear-gradient(top, #EFEFEF 50%, #CFCFCF 100%);
-  display: inline-block;
-  position: relative;
-  z-index: 0;
-  border-top-left-radius: 0.3em;
-  border-top-right-radius: 0.3em;
-  box-shadow: 0em 0.3em 0.3em #CFCFCF, inset 0em 0.1em 0em #FFFFFF;
-  text-shadow: 0em 0.075em 0.05em #FFFFFF;
-  margin: 0em -0.35em;
-  padding: 0.4em 1.5em;
-}
-
-.tabs a.selected {
-  background: #DFDFDF;
-  color: #8F8F8F;
-  z-index: 2;
-  border-bottom-color: #DFDFDF;
 }
 
 .tabs:before {
@@ -244,13 +201,56 @@ footer a {
   width: 100%;
   bottom: 0;
   left: 0;
-  border-bottom: 0.1em solid #9F9F9F;
+  border-bottom: 0.1em solid #BFBFBF;
   z-index: 1;
 }
 
-.tabs a:before,
-.tabs a:after {
-  border: 0.1em solid #9F9F9F;
+.tab {
+  background-color: #DFDFDF;
+  background: -o-linear-gradient(top, #EFEFEF 50%, #CFCFCF 100%);
+  background: -ms-linear-gradient(top, #EFEFEF 50%, #CFCFCF 100%);
+  background: -moz-linear-gradient(top, #EFEFEF 50%, #CFCFCF 100%);
+  background: -webkit-linear-gradient(top, #FFFFFF, #DFDFDF);
+  background: linear-gradient(top, #FFFFFF, #DFDFDF);
+  border-bottom-width: 0.1em;
+  border-color: #BFBFBF;
+  border-style: solid;
+  border-width: 0.1em;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  color: #3F3F3F;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  z-index: 0;
+  box-shadow: 0em 0.3em 0.3em #CFCFCF, inset 0em 0.1em 0em #FFFFFF;
+  text-shadow: 0em 0.075em 0.05em #FFFFFF;
+  margin: 0em -0.35em;
+  padding: 0.4em 1.5em;
+}
+
+.tab:hover {
+  color: #BF0000;
+  background: -webkit-linear-gradient(top, #DFDFDF, #FFFFFF);
+}
+.tab:hover:before {
+  box-shadow: 0.2em 0.2em 0em #FFFFFF;
+}
+
+.tab:hover:after {
+  box-shadow: -0.2em 0.2em 0em #FFFFFF;
+}
+
+.tab.selected {
+  background: #EFEFEF;
+  color: #8F8F8F;
+  z-index: 2;
+  border-bottom-color: #EFEFEF;
+}
+
+.tab:before,
+.tab:after {
+  border: 0.1em solid #BFBFBF;
   position: absolute;
   bottom: -0.1em;
   width: 0.3em;
@@ -258,36 +258,45 @@ footer a {
   content: " ";
 }
 
-.tabs a:before {
+.tab:before {
   left: -0.38em;
   border-bottom-right-radius: 0.3em;
   border-width: 0 0.1em 0.1em 0;
-  box-shadow: 0.2em 0.2em 0 #CFCFCF;
+  box-shadow: 0.2em 0.2em 0 #DFDFDF;
 }
 
-.tabs a:after {
+.tab:after {
   right: -0.38em;
   border-bottom-left-radius: 0.3em;
   border-width: 0em 0em 0.1em 0.1em;
-  box-shadow: -0.2em 0.2em 0 #CFCFCF;
+  box-shadow: -0.2em 0.2em 0 #DFDFDF;
 }
 
-.tabs a.selected:before {
-  box-shadow: 0.2em 0.2em 0em #DFDFDF;
+.tab.selected:before {
+  box-shadow: 0.2em 0.2em 0em #EFEFEF;
 }
 
-.tabs a.selected:after {
-  box-shadow: -0.2em 0.2em 0em #DFDFDF;
+.tab.selected:after {
+  box-shadow: -0.2em 0.2em 0em #EFEFEF;
 }
 
-.tabs a:hover {
-  color: #BF0000;
-}
-
-.tabs a.selected:hover {
+.tab.selected:hover {
   color: #8F8F8F;
 }
 
+
+.hide { display: none; }
+.show { display: block; }
+.large { font-size: 1.9em; }
+.small { font-size: 0.7em; }
+.dark {
+  background-color: #3F3F3F;
+  color: #DFDFDF;
+}
+.light {
+  background-color: #FFFFFF;
+  color: #1F1F1F;
+}
 .drag {
   position: relative;
   cursor: move;
